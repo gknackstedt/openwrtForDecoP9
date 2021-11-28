@@ -1005,6 +1005,50 @@ static struct device_info boards[] = {
 		.first_sysupgrade_partition = "os-image",
 		.last_sysupgrade_partition = "file-system"
 	},
+	
+	/** Firmware layout for the Deco M4R v1 and v2 */
+	{
+		.id     = "DECO-M4R-V1V2",
+		.vendor = "",
+		.support_list =
+			"SupportList:\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:55530000}\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:45550000}\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:43410000}\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:4A500000}\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:41550000}\n"
+			"{product_name:M4R,product_ver:1.0.0,special_id:4B520000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:55530000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:45550000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:43410000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:4A500000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:41550000}\n"
+			"{product_name:M4R,product_ver:2.0.0,special_id:4B520000}",
+		.support_trail = '\x00',
+		.soft_ver = "soft_ver:1.4.3 Build 20200918 Rel. 74289\n",
+
+		.partitions = {
+			{"fs-uboot", 0x00000, 0x80000},
+			{"os-image", 0x80000, 0x200000},
+			{"file-system", 0x280000, 0xc00000},
+			{"product-info", 0xe80000, 0x05000},
+			{"default-mac", 0xe85000, 0x01000},
+			{"device-id", 0xe86000, 0x01000},
+			{"support-list", 0xe87000, 0x10000},
+			{"user-config", 0xea7000, 0x10000},
+			{"device-config", 0xeb7000, 0x10000},
+			{"group-info", 0xec7000, 0x10000},
+			{"partition-table", 0xed7000, 0x02000},
+			{"soft-version", 0xed9000, 0x10000},
+			{"profile", 0xee9000, 0x10000},
+			{"default-config", 0xef9000, 0x10000},
+			{"url-sig", 0xfe0000, 0x10000},
+			{"radio", 0xff0000, 0x10000},
+			{NULL, 0, 0}
+		},
+		.first_sysupgrade_partition = "os-image",
+		.last_sysupgrade_partition = "file-system",
+	},
 
 	/** Firmware layout for the EAP120 */
 	{

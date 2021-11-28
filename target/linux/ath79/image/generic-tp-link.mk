@@ -153,6 +153,17 @@ define Device/tplink_archer-c7-v5
 endef
 TARGET_DEVICES += tplink_archer-c7-v5
 
+define Device/tplink_deco-m4r-v1v2
+  $(Device/tplink-safeloader-uimage)
+  ATH_SOC := qca9563
+  IMAGE_SIZE := 13824k
+  DEVICE_TITLE := TP-Link Deco M4R v1v2
+  TPLINK_BOARD_ID := DECO-M4R-V1V2
+  DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9888-ct
+  SUPPORTED_DEVICES += deco-m4r-v1v2
+endef
+TARGET_DEVICES += tplink_deco-m4r-v1v2
+
 define Device/tplink_cpe210-v2
   $(Device/tplink-safeloader)
   ATH_SOC := qca9533

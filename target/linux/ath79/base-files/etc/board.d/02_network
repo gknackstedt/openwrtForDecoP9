@@ -63,6 +63,10 @@ ath79_setup_interfaces()
 	winchannel,wb2000)
 		ucidef_set_interface_lan "eth0"
 		;;
+	tplink,deco-m4r-v1v2)
+		ucidef_add_switch "switch0" \
+			"0@eth0" "3:lan:1" "5:lan:2"
+		;;
 	avm,fritz4020|\
 	pcs,cr3000|\
 	tplink,archer-c58-v1|\
